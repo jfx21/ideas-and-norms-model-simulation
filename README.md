@@ -1,2 +1,2 @@
 # ideas-and-norms-model-simulation
-Symulacja kształtowania i rozprzestrzeniania si˛e idei oraz norm zachowa´n w społecze´nstwie
+Symulacja kształtowania i rozprzestrzeniania się idei oraz norm zachowań w społeczeństwie.
