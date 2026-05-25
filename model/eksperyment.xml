@@ -1,0 +1,16 @@
+
+<experiments>
+  <experiment name="wpływ_parametry" repetitions="10" sequentialRunOrder="true" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <exitCondition><![CDATA[ticks >= 500]]></exitCondition>
+    <metrics>
+      <metric>count turtles with [adopted?]</metric>
+      <metric>mean [opinion] of turtles</metric>
+    </metrics>
+    <constants>
+      <steppedValueSet variable="epsilon" first="0.05" step="0.05" last="0.45"></steppedValueSet>
+      <steppedValueSet variable="average-threshold" first="0.05" step="0.05" last="0.35"></steppedValueSet>
+    </constants>
+  </experiment>
+</experiments>

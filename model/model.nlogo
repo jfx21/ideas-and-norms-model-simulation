@@ -25,11 +25,21 @@ to setup
     ;; Rozmieszczenie na okręgu, żeby było widać sieć
     setxy (15 * cos (who * 3.6)) (15 * sin (who * 3.6))
     
-    ;; Przypisanie progów (Rogers)
+    ;; Przypisanie progów (Zbalansowany model Rogersa sterowany suwakiem)
     let r random-float 100
-    if r < 2.5 [ set threshold 0.05 ]   
-    if r >= 2.5 and r < 16 [ set threshold 0.15 ] 
-    if r >= 16 [ set threshold 0.5 ]    
+    ifelse r < 2.5 [ 
+      set threshold (average-threshold * 0.2) ;; Innowatorzy - bardzo niski próg
+    ]   
+    [
+      ifelse r >= 2.5 and r < 16 [ 
+        set threshold (average-threshold * 0.6) ;; Wcześni naśladowcy - niski próg
+      ] 
+      [    
+        ;; Większość i maruderzy podążają za suwakiem
+        set threshold (average-threshold + (random-float 0.1 - 0.05)) 
+      ]
+    ]
+    if threshold < 0 [ set threshold 0 ]
   ]
   
   ;; 2. Inicjalizacja innowatorów
